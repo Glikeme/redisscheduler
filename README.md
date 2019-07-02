@@ -10,6 +10,8 @@ npm run redis
 
 # Running for testing
 
+For simulating few servers you can run two (or more) instances of the app
+
 PORT=3000 npm start
 
 PORT=4000 npm start
