@@ -1,19 +1,14 @@
 var createError = require("http-errors");
 var express = require("express");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
 
 var scheduler = require("./routes/scheduler");
 
 var app = express();
 
 // view engine setup
-app.set("view engine", "jade");
+app.set("view engine", "html");
 
-app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 // Routes
 app.use("/", scheduler);

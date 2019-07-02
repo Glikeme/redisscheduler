@@ -71,7 +71,7 @@ const scheduleNextMessage = function(fromTimestamp) {
         return;
       }
 
-      const [message, timestamp] = reply;
+      const [, timestamp] = reply;
       if (!!timestamp) {
         scheduleMessage(timestamp);
       }
@@ -123,7 +123,7 @@ const printOldMessages = function() {
         if (err) {
           return errorHandler(err);
         }
-        const [cursor, keys] = reply;
+        const [, keys] = reply;
         if (!keys.length) {
           return;
         }
@@ -149,8 +149,7 @@ const clearMessageData = function(message = "") {
   const messageId = message.slice(0, UUIDv4_LENGTH);
 
   client.del(`${MESSAGE_STATUS_PREFIX}:${serverName}:${messageId}`, function(
-    err,
-    reply
+    err
   ) {
     if (err) {
       return errorHandler(err);
@@ -162,7 +161,7 @@ const clearMessageData = function(message = "") {
       if (err) {
         return errorHandler(err);
       }
-      const [cursor, keys] = reply;
+      const [, keys] = reply;
       if (!keys.length) {
         client.zrem(MESSAGES_KEY, message, errorHandler);
       }

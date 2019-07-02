@@ -4,17 +4,22 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "redis": "./redis.sh"
+    "redis": "./redis.sh",
+    "test": "mocha tests/*.js --exit"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "http-status-codes": "^1.3.2",
     "ip": "^1.1.5",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1",
     "redis": "^2.8.0",
     "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.1.4",
+    "request": "^2.88.0"
   }
 }
